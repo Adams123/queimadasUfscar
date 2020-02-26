@@ -10,6 +10,10 @@ data class User(
     val username: String,
     @SerializedName("password")
     val password: String,
-    @SerializedName("role")
-    val role: String
-)
+    @SerializedName("roles")
+    val roles: List<Role>
+) {
+    data class Role(
+        val userRole: String
+    )
+}
