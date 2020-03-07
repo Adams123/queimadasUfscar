@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">Queimadas</string>
-    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="app_name">Brigada virtual</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_maps_home">Map</string>
+    <string name="password">Senha</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
 </resources>

@@ -22,9 +22,9 @@ class LoginService(private val context: Context) {
     }
 
     //TODO make this piece of crap work
-    fun createUser(username: String, password: String): UserBearerToken {
+    fun createUser(username: String, password: String): UserBearerToken? {
         val createCall: Call<CreatedUserResponse> = loginApi.createUser(username, password)
-        var token: String? = null
+        var bearerToken: UserBearerToken? = null
         createCall.enqueue(object : Callback<CreatedUserResponse> {
             override fun onFailure(call: Call<CreatedUserResponse>, t: Throwable) {
                 t.message?.toast()
@@ -41,22 +41,17 @@ class LoginService(private val context: Context) {
                 } else {
                     val createdResponse = response.body()
                     if (createdResponse != null) {
-                        token = createdResponse.token
-                        logger.info { token }
+                        bearerToken = UserBearerToken(
+                            User(createdResponse.userId, username, password),
+                            createdResponse.token
+                        ) //TODO change to get user and apply roles
+                        logger.info { bearerToken }
                     }
                 }
                 return
             }
         })
-        token.toString().toast()
-        return UserBearerToken(
-            User(
-                UUID.fromString(token),
-                username,
-                password,
-                listOf(User.Role("PUBLIC"))
-            ), UUID.fromString(token)
-        )
+        return bearerToken
     }
 
     fun findUser(id: UUID): User? {
