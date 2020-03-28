@@ -3,11 +3,17 @@ package com.ufscar.queimadas.ui.login
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ufscar.queimadas.R
 import com.ufscar.queimadas.databinding.ActivityLoginBinding
+import com.ufscar.queimadas.model.CreatedUserResponse
 import com.ufscar.queimadas.sharedPrefs.SharedPrefsManager
+import com.ufscar.queimadas.utils.hide
+import com.ufscar.queimadas.utils.show
 import com.ufscar.queimadas.utils.toast
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity(), AuthListener {
@@ -29,20 +35,20 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         }*/
     }
 
-    fun test() {
-        toast("Funfou")
-    }
-
     override fun onStarted() {
-        toast("Login started")
+        progressBar.show()
     }
 
-    override fun onSuccess() {
-        toast("Login success")
+    override fun onSuccess(createdResponse: LiveData<CreatedUserResponse>) {
+        createdResponse.observe(this, Observer {
+            progressBar.hide()
+            toast(it.userId.toString())
+        })
     }
 
     override fun onFailure(message: String) {
-        toast("Login failure")
+        progressBar.hide()
+        toast(message)
     }
 
 

@@ -1,7 +1,7 @@
 package com.ufscar.queimadas.utils
 
 object Constants {
-    private const val BASE_URL: String = "http://187.10.31.216"
+    private const val BASE_URL: String = "http://192.168.15.16"
     private const val BASE_PORT: String = "8666"
     const val BASE_URL_PORT = "$BASE_URL:$BASE_PORT"
 

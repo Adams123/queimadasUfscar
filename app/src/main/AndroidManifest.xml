@@ -39,7 +39,7 @@
 
         <activity
             android:name=".MapsHome"
-            android:label="@string/title_activity_maps_home"></activity>
+            android:label="@string/title_activity_maps_home" />
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

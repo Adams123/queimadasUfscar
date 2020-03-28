@@ -7,5 +7,11 @@ data class CreatedUserResponse(
     @SerializedName("userId")
     val userId: UUID,
     @SerializedName("token")
-    val token: String
-)
+    val token: String,
+    var statusResponse: StatusResponse?
+) {
+    class StatusResponse(
+        val status: Int,
+        var errorMessage: String? = null
+    )
+}

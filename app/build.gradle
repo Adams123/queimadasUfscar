@@ -58,6 +58,7 @@ ext {
     testJunit='4.12'
     androidTestJunit='1.1.1'
     espresso_core='3.2.0'
+    url_connection='3.10.0'
 }
 
 dependencies {
@@ -69,6 +70,7 @@ dependencies {
     implementation "com.google.android.material:material:$material"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support_v4"
     implementation "com.google.android.gms:play-services-maps:$play_services_maps"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$url_connection"
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$converter_gson"

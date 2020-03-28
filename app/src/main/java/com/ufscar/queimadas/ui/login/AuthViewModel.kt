@@ -2,6 +2,7 @@ package com.ufscar.queimadas.ui.login
 
 import android.view.View
 import androidx.lifecycle.ViewModel
+import com.ufscar.queimadas.rest.repositories.UserRepository
 
 class AuthViewModel : ViewModel() {
 
@@ -17,9 +18,8 @@ class AuthViewModel : ViewModel() {
             return
         }
 
-        authListener?.onSuccess()
-
-
+        val createdResponse = UserRepository().userCreate(email!!, password!!)
+        authListener?.onSuccess(createdResponse)
     }
 
 }

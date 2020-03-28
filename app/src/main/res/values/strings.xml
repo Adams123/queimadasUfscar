@@ -6,4 +6,6 @@
     <string name="password">Senha</string>
     <string name="email">Email</string>
     <string name="login">Login</string>
+    <string name="registrationText">Não tem uma conta?</string>
+    <string name="registrationLink"><u>Registre-se aqui</u></string>
 </resources>

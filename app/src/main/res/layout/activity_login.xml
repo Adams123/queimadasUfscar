@@ -18,21 +18,16 @@
         android:animationCache="false"
         tools:context=".ui.login.LoginActivity">
 
-        <RelativeLayout
-            android:id="@+id/login_background"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:alpha="0.4"
-            android:background="@drawable/background_login"
-            android:backgroundTint="@color/colorAccent"
-            android:backgroundTintMode="screen"
-            android:orientation="vertical"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </RelativeLayout>
+            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
         <Button
             android:id="@+id/loginBtn"
@@ -75,6 +70,53 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailInput" />
+
+        <LinearLayout
+            android:id="@+id/registerTextGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_background"
+            android:gravity="bottom|center_horizontal"
+            android:paddingLeft="4.0dip"
+            android:paddingTop="5.0dip"
+            android:paddingRight="4.0dip"
+            android:paddingBottom="1.0dip"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/noAccountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registrationText"
+                app:layout_constraintStart_toEndOf="@+id/noAccountLink" />
+
+            <com.ufscar.queimadas.widgets.UnderlinedTextView
+                android:id="@+id/noAccountLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/registrationLink"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/login_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.4"
+            android:background="@drawable/background_login"
+            android:backgroundTint="@color/colorAccent"
+            android:backgroundTintMode="screen"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

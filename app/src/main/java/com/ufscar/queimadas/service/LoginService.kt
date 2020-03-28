@@ -2,9 +2,7 @@ package com.ufscar.queimadas.service
 
 import android.content.Context
 import android.widget.Toast
-import com.ufscar.queimadas.model.CreatedUserResponse
 import com.ufscar.queimadas.model.User
-import com.ufscar.queimadas.model.UserBearerToken
 import com.ufscar.queimadas.rest.RetrofitInitializer
 import com.ufscar.queimadas.rest.endpoints.APILogin
 import mu.KotlinLogging
@@ -19,39 +17,6 @@ class LoginService(private val context: Context) {
 
     fun Any.toast(duration: Int = Toast.LENGTH_SHORT): Toast {
         return Toast.makeText(context, this.toString(), duration).apply { show() }
-    }
-
-    //TODO make this piece of crap work
-    fun createUser(username: String, password: String): UserBearerToken? {
-        val createCall: Call<CreatedUserResponse> = loginApi.createUser(username, password)
-        var bearerToken: UserBearerToken? = null
-        createCall.enqueue(object : Callback<CreatedUserResponse> {
-            override fun onFailure(call: Call<CreatedUserResponse>, t: Throwable) {
-                t.message?.toast()
-                logger.error { t.message }
-                return
-            }
-
-            override fun onResponse(
-                call: Call<CreatedUserResponse>,
-                response: Response<CreatedUserResponse>
-            ) {
-                if (!response.isSuccessful) {
-                    "Failure".toast()
-                } else {
-                    val createdResponse = response.body()
-                    if (createdResponse != null) {
-                        bearerToken = UserBearerToken(
-                            User(createdResponse.userId, username, password),
-                            createdResponse.token
-                        ) //TODO change to get user and apply roles
-                        logger.info { bearerToken }
-                    }
-                }
-                return
-            }
-        })
-        return bearerToken
     }
 
     fun findUser(id: UUID): User? {
