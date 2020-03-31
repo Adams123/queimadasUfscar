@@ -12,4 +12,27 @@
 
     <style name="MaterialComponents.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
+    <style name="loginButton_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:backgroundTint">@color/burntOrange</item>
+        <item name="android:paddingLeft">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingRight">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingTop">@dimen/welcomeButtonsVPadding</item>
+        <item name="android:paddingBottom">@dimen/welcomeButtonsVPadding</item>
+    </style>
+
+    <style name="signUpButton_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:backgroundTint">@color/plainWhite</item>
+        <item name="android:paddingLeft">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingRight">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingTop">@dimen/welcomeButtonsVPadding</item>
+        <item name="android:paddingBottom">@dimen/welcomeButtonsVPadding</item>
+        <item name="android:textColor">@color/burntOrange</item>
+    </style>
+
 </resources>

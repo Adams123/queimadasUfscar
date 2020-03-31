@@ -1,4 +1,4 @@
-package com.ufscar.queimadas.ui.login
+package com.ufscar.queimadas.ui.welcome
 
 import android.view.View
 import androidx.lifecycle.ViewModel
@@ -12,6 +12,17 @@ class AuthViewModel : ViewModel() {
     var authListener: AuthListener? = null
 
     fun onLoginButtonClick(view: View) {
+        authListener?.onStarted()
+        if (email.isNullOrBlank() || password.isNullOrBlank()) {
+            authListener?.onFailure("Usuário e senha n pode ser vazio mano, pqp tu é burro?")
+            return
+        }
+
+        val createdResponse = UserRepository().userCreate(email!!, password!!)
+        authListener?.onSuccess(createdResponse)
+    }
+
+    fun onRegistrationButtonClick(view: View) {
         authListener?.onStarted()
         if (email.isNullOrBlank() || password.isNullOrBlank()) {
             authListener?.onFailure("Usuário e senha n pode ser vazio mano, pqp tu é burro?")

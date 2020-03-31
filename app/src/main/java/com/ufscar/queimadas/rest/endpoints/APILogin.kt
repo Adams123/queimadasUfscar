@@ -19,8 +19,8 @@ interface APILogin {
     @FormUrlEncoded
     @POST("$USER_PATH/$PUBLIC_PATH/$REGISTRATION_PATH")
     fun createUserBody(
-        @Query(USERNAME) username: String,
-        @Query(PASSWORD) password: String
+        @Field(USERNAME) username: String,
+        @Field(PASSWORD) password: String
     ): Call<ResponseBody>
 
     @GET("$USER_PATH/$GET_PATH")

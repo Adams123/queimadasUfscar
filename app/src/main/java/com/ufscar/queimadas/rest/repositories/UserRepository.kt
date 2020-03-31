@@ -27,11 +27,11 @@ class UserRepository {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     loginResponse.value =
-                        mapper.fromJson(response.body().toString(), CreatedUserResponse::class.java)
+                        mapper.fromJson(response.body()?.string(), CreatedUserResponse::class.java)
                 } else {
                     loginResponse.value?.statusResponse = CreatedUserResponse.StatusResponse(
                         response.code(),
-                        response.errorBody().toString()
+                        response.errorBody()?.string()
                     )
                 }
             }

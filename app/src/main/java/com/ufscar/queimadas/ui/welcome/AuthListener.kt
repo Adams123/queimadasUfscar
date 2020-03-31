@@ -1,4 +1,4 @@
-package com.ufscar.queimadas.ui.login
+package com.ufscar.queimadas.ui.welcome
 
 import androidx.lifecycle.LiveData
 import com.ufscar.queimadas.model.CreatedUserResponse
