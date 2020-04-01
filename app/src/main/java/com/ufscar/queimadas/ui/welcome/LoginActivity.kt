@@ -36,6 +36,11 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         }*/
     }
 
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
     override fun onStarted() {
         progressBar.show()
     }

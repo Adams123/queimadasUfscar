@@ -13,12 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animationCache="false"
-        android:background="@drawable/background_login"
-        android:backgroundTint="@color/backgroundAlphaTilt"
-        android:backgroundTintMode="src_over"
+        style="@style/main_background"
         tools:context=".ui.welcome.LoginActivity">
 
         <ImageView
@@ -65,14 +60,12 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/loadingBar"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/loginBtn"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Brigada virtual</string>
+    <string name="app_name">Brigada online</string>
     <string name="title_activity_maps_home">Map</string>
     <string name="password">Senha</string>
     <string name="email">Email</string>
