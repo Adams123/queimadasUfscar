@@ -36,7 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.welcome.RegistrationActivity" />
+        <activity android:name=".ui.welcome.registration.RegistrationActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -47,12 +47,12 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyD7xzsCOyPkIPVrqJsdz6DKP_MjEaVkOZM" />
 
         <activity
-            android:name=".MapsHome"
+            android:name=".ui.mapshome.MapsHomeActivity"
             android:label="@string/title_activity_maps_home" />
-        <activity android:name=".ui.welcome.LoginActivity" />
+        <activity android:name=".ui.welcome.login.LoginActivity" />
     </application>
 
 </manifest>

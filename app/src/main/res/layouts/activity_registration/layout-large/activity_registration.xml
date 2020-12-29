@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="registrationViewModel"
-            type="com.ufscar.queimadas.ui.welcome.AuthViewModel" />
+            type="com.ufscar.queimadas.ui.welcome.registration.RegViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/registration_layout"
         style="@style/main_background"
-        tools:context=".ui.welcome.RegistrationActivity">
+        tools:context=".ui.welcome.registration.RegistrationActivity">
 
         <ImageView
             android:id="@+id/welcomeLogo"
@@ -71,6 +70,7 @@
             android:id="@+id/signUpButton"
             style="@style/signUpButton_normal"
             android:layout_marginTop="@dimen/welcomeButtonMargins_L"
+            android:onClick="@{registrationViewModel::onRegistrationButtonClick}"
             android:text="@string/signUpText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +84,7 @@
             android:autofillHints="emailAddress"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
+            android:text="@{registrationViewModel.email}"
             app:layout_constraintBottom_toTopOf="@+id/passwordInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -98,6 +99,7 @@
             android:layout_marginTop="32dp"
             android:autofillHints="password"
             android:hint="@string/password"
+            android:text="@{registrationViewModel.password}"
             android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/signUpButton"
             app:layout_constraintEnd_toEndOf="parent"

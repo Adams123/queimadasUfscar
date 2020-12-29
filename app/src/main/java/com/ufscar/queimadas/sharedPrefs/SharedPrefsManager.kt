@@ -46,6 +46,11 @@ class SharedPrefsManager private constructor(private val mCtx: Context) {
                 null
             }
         }
+    val fetchAuthToken: String?
+        get() {
+            val token = getAsString("bearerToken")
+            return token
+    }
     val getLoggedUserRoles: MutableSet<User.Role>
         get() {
             val sharedPreferences =

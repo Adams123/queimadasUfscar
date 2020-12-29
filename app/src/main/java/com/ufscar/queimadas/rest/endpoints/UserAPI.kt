@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.http.*
 import java.util.*
 
-interface APILogin {
+interface UserAPI {
 
     @FormUrlEncoded
     @POST("$USER_PATH/$PUBLIC_PATH/$REGISTRATION_PATH")
@@ -24,15 +24,12 @@ interface APILogin {
     ): Call<ResponseBody>
 
     @GET("$USER_PATH/$GET_PATH")
-    fun findUser(@Query(ID) id: UUID): Call<User>
+    fun findUser(@Query(ID) id: UUID): Call<ResponseBody>
 
     @DELETE(USER_PATH)
-    fun deleteUser(@Query(ID) id: UUID): Call<String>
+    fun deleteUser(@Query(ID) id: UUID): Call<ResponseBody>
 
     @FormUrlEncoded
     @POST("$USER_PATH/$PUBLIC_PATH/$LOGIN_PATH")
-    fun login(@Field(USERNAME) username: String, @Field(PASSWORD) password: String): Call<UUID>
-
-    @GET("actuator/health")
-    fun healthCheck(): Call<ResponseBody>
+    fun login(@Field(USERNAME) username: String, @Field(PASSWORD) password: String): Call<ResponseBody>
 }

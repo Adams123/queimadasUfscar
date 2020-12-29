@@ -6,13 +6,13 @@
     <data>
         <variable
             name="registrationViewModel"
-            type="com.ufscar.queimadas.ui.welcome.AuthViewModel" />
+            type="com.ufscar.queimadas.ui.welcome.registration.RegViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/registration_layout"
         style="@style/main_background"
-        tools:context=".ui.welcome.RegistrationActivity">
+        tools:context=".ui.welcome.registration.RegistrationActivity">
 
         <ImageView
             android:id="@+id/welcomeLogo"
@@ -70,6 +70,7 @@
             style="@style/signUpButton_normal"
             android:layout_marginTop="@dimen/welcomeButtonMargins_L"
             android:text="@string/signUpText"
+            android:onClick="@{registrationViewModel::onRegistrationButtonClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -81,6 +82,7 @@
             android:autofillHints="emailAddress"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
+            android:text="@={registrationViewModel.email}"
             style="@style/edit_text_box"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -96,6 +98,7 @@
             android:autofillHints="password"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:text="@={registrationViewModel.password}"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

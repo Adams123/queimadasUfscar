@@ -1,6 +1,6 @@
 package com.ufscar.queimadas.model
 
-open class BaseResponse(
+data class StatusResponse(
     val status: Int,
     var errorMessage: String? = null
 )

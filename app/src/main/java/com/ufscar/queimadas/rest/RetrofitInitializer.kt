@@ -1,7 +1,8 @@
 package com.ufscar.queimadas.rest
 
 import com.google.gson.GsonBuilder
-import com.ufscar.queimadas.rest.endpoints.APILogin
+import com.ufscar.queimadas.rest.endpoints.MapsAPI
+import com.ufscar.queimadas.rest.endpoints.UserAPI
 import com.ufscar.queimadas.utils.Constants.BASE_URL_PORT
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
@@ -17,7 +18,7 @@ class RetrofitInitializer {
     val retrofit by lazy {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
-        val cookieManager: CookieManager = CookieManager()
+        val cookieManager = CookieManager()
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL)
         val cookieJar = JavaNetCookieJar(cookieManager)
         val httpClient = OkHttpClient.Builder()
@@ -30,7 +31,7 @@ class RetrofitInitializer {
                 .header("Accept", "*/*")
                 .header("Connection", "keep-alive")
                 .header("Accept-Encoding", "gzip, deflate, br")
-                .method(original.method(), original.body())
+                .method(original.method, original.body)
                 .build()
             chain.proceed(request)
         }
@@ -45,8 +46,12 @@ class RetrofitInitializer {
             .build()
     }
 
-    fun loginService(): APILogin {
-        return retrofit.create(APILogin::class.java)
+    fun userService(): UserAPI {
+        return retrofit.create(UserAPI::class.java)
+    }
+
+    fun mapsService(): MapsAPI {
+        return retrofit.create(MapsAPI::class.java)
     }
 
 }

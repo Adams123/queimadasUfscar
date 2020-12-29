@@ -1,37 +1,33 @@
-package com.ufscar.queimadas.ui.welcome
+package com.ufscar.queimadas.ui.welcome.registration
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ufscar.queimadas.R
 import com.ufscar.queimadas.databinding.ActivityRegistrationBinding
-import com.ufscar.queimadas.model.CreatedUserResponse
+import com.ufscar.queimadas.model.UserResponse
 import com.ufscar.queimadas.sharedPrefs.SharedPrefsManager
+import com.ufscar.queimadas.ui.Listener
+import com.ufscar.queimadas.ui.mapshome.MapsHomeActivity
 import com.ufscar.queimadas.utils.hide
 import com.ufscar.queimadas.utils.show
 import com.ufscar.queimadas.utils.toast
-import kotlinx.android.synthetic.main.activity_login.*
 
-class RegistrationActivity : AppCompatActivity(), AuthListener {
+class RegistrationActivity : AppCompatActivity(),
+    Listener<UserResponse> {
     private val prefsManager: SharedPrefsManager = SharedPrefsManager.getInstance(this)
+    private lateinit var binding: ActivityRegistrationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityRegistrationBinding.inflate(layoutInflater)
 
-        val bindingLogin: ActivityRegistrationBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_registration)
-        val viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-        bindingLogin.registrationViewModel = viewModel
+        val viewModel = ViewModelProvider(this).get(RegViewModel::class.java)
+        binding.registrationViewModel = viewModel
 
         viewModel.authListener = this
-
-
-        /*if(prefsManager.isFirstTimeLogin) {
-            toast("Welcome to BUURN")
-        }*/
     }
 
     override fun finish() {
@@ -40,19 +36,21 @@ class RegistrationActivity : AppCompatActivity(), AuthListener {
     }
 
     override fun onStarted() {
-        progressBar.show()
+        binding.progressBar.show()
     }
 
-    override fun onSuccess(createdResponse: LiveData<CreatedUserResponse>) {
-        createdResponse.observe(this, Observer {
-            progressBar.hide()
+    override fun onSuccess(genericResponse: LiveData<UserResponse>) {
+        genericResponse.observe(this, {
+            binding.progressBar.hide()
             prefsManager.savePreference("id", it.userId.toString())
             prefsManager.savePreference("token", it.token)
         })
+        val intent = Intent(this, MapsHomeActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onFailure(message: String) {
-        progressBar.hide()
+        binding.progressBar.hide()
         toast(message)
     }
 }
