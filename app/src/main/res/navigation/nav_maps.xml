@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_maps"
+    app:startDestination="@id/fragment_maps">
+
+    <fragment
+        android:id="@+id/fragment_maps"
+        android:name="com.ufscar.queimadas_front.ui.home.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapFragment_to_fire_list"
+            app:destination="@id/fragment_fire_list"
+            app:popUpTo="@id/fragment_maps"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_fire_list"
+        android:name="com.ufscar.queimadas_front.ui.firelist.FireListFragment"
+        android:label="fragment_fire_list"
+        tools:layout="@layout/fragment_fire_list" >
+        <action
+            android:id="@+id/action_fireList_to_map_fragment"
+            app:destination="@id/fragment_maps"
+            app:popUpTo="@id/fragment_fire_list"/>
+    </fragment>
+</navigation>

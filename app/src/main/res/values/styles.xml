@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="loginButton_Large">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:backgroundTint">@color/burntOrange</item>
+        <item name="android:paddingRight">@dimen/welcomeButtonsHPadding_L</item>
+        <item name="android:paddingLeft">@dimen/welcomeButtonsHPadding_L</item>
+        <item name="android:paddingTop">@dimen/welcomeButtonsVPadding_L</item>
+        <item name="android:paddingBottom">@dimen/welcomeButtonsVPadding_L</item>
+        <item name="android:textSize">@dimen/buttonTextSize_L</item>
+    </style>
+
+    <style name="loadingBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="signUpButton_Large">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:backgroundTint">@color/plainWhite</item>
+        <item name="android:paddingLeft">@dimen/welcomeButtonsHPadding_L</item>
+        <item name="android:paddingRight">@dimen/welcomeButtonsHPadding_L</item>
+        <item name="android:paddingTop">@dimen/welcomeButtonsVPadding_L</item>
+        <item name="android:paddingBottom">@dimen/welcomeButtonsVPadding_L</item>
+        <item name="android:textColor">@color/burntOrange</item>
+        <item name="android:textSize">@dimen/buttonTextSize_L</item>
+    </style>
+
+    <style name="editText_large">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">12</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <style name="main_background">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/burntOrange</item>
+        <item name="android:backgroundTint">@color/backgroundAlphaTilt</item>
+        <item name="android:backgroundTintMode">src_over</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MaterialComponents.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="YourTheme" parent="AppTheme">
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <style name="MaterialComponents.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+
+    <style name="loginButton_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:backgroundTint">@color/burntOrange</item>
+        <item name="android:paddingLeft">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingRight">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingTop">@dimen/welcomeButtonsVPadding</item>
+        <item name="android:paddingBottom">@dimen/welcomeButtonsVPadding</item>
+    </style>
+
+    <style name="logoutButton_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:backgroundTint">@color/burntOrange</item>
+    </style>
+
+    <style name="signUpButton_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:backgroundTint">@color/plainWhite</item>
+        <item name="android:paddingLeft">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingRight">@dimen/welcomeButtonsHPadding</item>
+        <item name="android:paddingTop">@dimen/welcomeButtonsVPadding</item>
+        <item name="android:paddingBottom">@dimen/welcomeButtonsVPadding</item>
+        <item name="android:textColor">@color/burntOrange</item>
+    </style>
+
+    <style name="edit_text_box">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">12</item>
+        <item name="android:backgroundTint">@color/burntOrange</item>
+        <item name="android:textColorHint">@color/burntOrange</item>
+    </style>
+</resources>
